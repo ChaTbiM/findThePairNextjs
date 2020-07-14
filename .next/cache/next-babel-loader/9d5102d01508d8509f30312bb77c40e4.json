@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const ADD_ARTICLE = \"ADD_ARTICLE\";","map":{"version":3,"sources":["C:/Users/chatb/Desktop/Code/nextJS/find-the-pair/redux/constants/action-types.js"],"names":["ADD_ARTICLE"],"mappings":"AAAA,OAAO,MAAMA,WAAW,GAAG,aAApB","sourcesContent":["export const ADD_ARTICLE = \"ADD_ARTICLE\";\r\n"]},"metadata":{},"sourceType":"module"}

@@ -1,0 +1,150 @@
+webpackHotUpdate("static\\development\\pages\\_app.js",{
+
+/***/ "./redux/reducers/index.js":
+/*!*********************************!*\
+  !*** ./redux/reducers/index.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var _constants_action_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants/action-types */ "./redux/constants/action-types.js");
+/* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next-redux-wrapper */ "./node_modules/next-redux-wrapper/es6/index.js");
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+
+
+var initialState = {
+  numberOfPairs: 15,
+  cards: [{
+    src: "animals-bunny.jpg"
+  }, {
+    src: "animals-bunny.jpg"
+  }, {
+    src: "animals-bunny.jpg"
+  }, {
+    src: "animals-bunny.jpg"
+  }, {
+    src: "animals-bunny.jpg"
+  }, {
+    src: "animals-bunny.jpg"
+  }, {
+    src: "animals-bunny.jpg"
+  }, {
+    src: "animals-bunny.jpg"
+  }, {
+    src: "animals-bunny.jpg"
+  }, {
+    src: "animals-bunny.jpg"
+  }, {
+    src: "animals-bunny.jpg"
+  }, {
+    src: "animals-bunny.jpg"
+  }, {
+    src: "animals-bunny.jpg"
+  }, {
+    src: "animals-bunny.jpg"
+  }, {
+    src: "animals-bunny.jpg"
+  }, {
+    src: "animals-bunny.jpg"
+  }, {
+    src: "animals-bunny.jpg"
+  }, {
+    src: "animals-bunny.jpg"
+  }, {
+    src: "animals-bunny.jpg"
+  }, {
+    src: "animals-bunny.jpg"
+  }, {
+    src: "animals-bunny.jpg"
+  }]
+};
+
+function rootReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case next_redux_wrapper__WEBPACK_IMPORTED_MODULE_2__["HYDRATE"]:
+      return _objectSpread(_objectSpread({}, state), action.payload);
+
+    case _constants_action_types__WEBPACK_IMPORTED_MODULE_1__["ADD_ARTICLE"]:
+      return Object.assign({}, state, {
+        articles: state.articles.concat(action.payload)
+      });
+
+    default:
+      return state;
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (rootReducer);
+
+;
+    var _a, _b;
+    // Legacy CSS implementations will `eval` browser code in a Node.js context
+    // to extract CSS. For backwards compatibility, we need to check we're in a
+    // browser context before continuing.
+    if (typeof self !== 'undefined' &&
+        // AMP / No-JS mode does not inject these helpers:
+        '$RefreshHelpers$' in self) {
+        var currentExports_1 = module.__proto__.exports;
+        var prevExports = (_b = (_a = module.hot.data) === null || _a === void 0 ? void 0 : _a.prevExports) !== null && _b !== void 0 ? _b : null;
+        // This cannot happen in MainTemplate because the exports mismatch between
+        // templating and execution.
+        self.$RefreshHelpers$.registerExportsForReactRefresh(currentExports_1, module.i);
+        // A module can be accepted automatically based on its exports, e.g. when
+        // it is a Refresh Boundary.
+        if (self.$RefreshHelpers$.isReactRefreshBoundary(currentExports_1)) {
+            // Save the previous exports on update so we can compare the boundary
+            // signatures.
+            module.hot.dispose(function (data) {
+                data.prevExports = currentExports_1;
+            });
+            // Unconditionally accept an update to this module, we'll check if it's
+            // still a Refresh Boundary later.
+            module.hot.accept();
+            // This field is set when the previous version of this module was a
+            // Refresh Boundary, letting us know we need to check for invalidation or
+            // enqueue an update.
+            if (prevExports !== null) {
+                // A boundary can become ineligible if its exports are incompatible
+                // with the previous exports.
+                //
+                // For example, if you add/remove/change exports, we'll want to
+                // re-execute the importing modules, and force those components to
+                // re-render. Similarly, if you convert a class component to a
+                // function, we want to invalidate the boundary.
+                if (self.$RefreshHelpers$.shouldInvalidateReactRefreshBoundary(prevExports, currentExports_1)) {
+                    module.hot.invalidate();
+                }
+                else {
+                    self.$RefreshHelpers$.scheduleUpdate();
+                }
+            }
+        }
+        else {
+            // Since we just executed the code for the module, it's possible that the
+            // new exports made it ineligible for being a boundary.
+            // We only care about the case when we were _previously_ a boundary,
+            // because we already accepted this update (accidental side effect).
+            var isNoLongerABoundary = prevExports !== null;
+            if (isNoLongerABoundary) {
+                module.hot.invalidate();
+            }
+        }
+    }
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/webpack/buildin/harmony-module.js */ "./node_modules/webpack/buildin/harmony-module.js")(module)))
+
+/***/ })
+
+})
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZWR1eC9yZWR1Y2Vycy9pbmRleC5qcyJdLCJuYW1lcyI6WyJpbml0aWFsU3RhdGUiLCJudW1iZXJPZlBhaXJzIiwiY2FyZHMiLCJzcmMiLCJyb290UmVkdWNlciIsInN0YXRlIiwiYWN0aW9uIiwidHlwZSIsIkhZRFJBVEUiLCJwYXlsb2FkIiwiQUREX0FSVElDTEUiLCJPYmplY3QiLCJhc3NpZ24iLCJhcnRpY2xlcyIsImNvbmNhdCJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQTtBQUNBO0FBRUEsSUFBTUEsWUFBWSxHQUFHO0FBQ25CQyxlQUFhLEVBQUUsRUFESTtBQUVuQkMsT0FBSyxFQUFFLENBQ0w7QUFDRUMsT0FBRyxFQUFFO0FBRFAsR0FESyxFQUlMO0FBQ0VBLE9BQUcsRUFBRTtBQURQLEdBSkssRUFPTDtBQUNFQSxPQUFHLEVBQUU7QUFEUCxHQVBLLEVBVUw7QUFDRUEsT0FBRyxFQUFFO0FBRFAsR0FWSyxFQWFMO0FBQ0VBLE9BQUcsRUFBRTtBQURQLEdBYkssRUFnQkw7QUFDRUEsT0FBRyxFQUFFO0FBRFAsR0FoQkssRUFtQkw7QUFDRUEsT0FBRyxFQUFFO0FBRFAsR0FuQkssRUFzQkw7QUFDRUEsT0FBRyxFQUFFO0FBRFAsR0F0QkssRUF5Qkw7QUFDRUEsT0FBRyxFQUFFO0FBRFAsR0F6QkssRUE0Qkw7QUFDRUEsT0FBRyxFQUFFO0FBRFAsR0E1QkssRUErQkw7QUFDRUEsT0FBRyxFQUFFO0FBRFAsR0EvQkssRUFrQ0w7QUFDRUEsT0FBRyxFQUFFO0FBRFAsR0FsQ0ssRUFxQ0w7QUFDRUEsT0FBRyxFQUFFO0FBRFAsR0FyQ0ssRUF3Q0w7QUFDRUEsT0FBRyxFQUFFO0FBRFAsR0F4Q0ssRUEyQ0w7QUFDRUEsT0FBRyxFQUFFO0FBRFAsR0EzQ0ssRUE4Q0w7QUFDRUEsT0FBRyxFQUFFO0FBRFAsR0E5Q0ssRUFpREw7QUFDRUEsT0FBRyxFQUFFO0FBRFAsR0FqREssRUFvREw7QUFDRUEsT0FBRyxFQUFFO0FBRFAsR0FwREssRUF1REw7QUFDRUEsT0FBRyxFQUFFO0FBRFAsR0F2REssRUEwREw7QUFDRUEsT0FBRyxFQUFFO0FBRFAsR0ExREssRUE2REw7QUFDRUEsT0FBRyxFQUFFO0FBRFAsR0E3REs7QUFGWSxDQUFyQjs7QUFxRUEsU0FBU0MsV0FBVCxHQUFtRDtBQUFBLE1BQTlCQyxLQUE4Qix1RUFBdEJMLFlBQXNCO0FBQUEsTUFBUk0sTUFBUTs7QUFDakQsVUFBUUEsTUFBTSxDQUFDQyxJQUFmO0FBQ0UsU0FBS0MsMERBQUw7QUFDRSw2Q0FBWUgsS0FBWixHQUFzQkMsTUFBTSxDQUFDRyxPQUE3Qjs7QUFDRixTQUFLQyxtRUFBTDtBQUNFLGFBQU9DLE1BQU0sQ0FBQ0MsTUFBUCxDQUFjLEVBQWQsRUFBa0JQLEtBQWxCLEVBQXlCO0FBQzlCUSxnQkFBUSxFQUFFUixLQUFLLENBQUNRLFFBQU4sQ0FBZUMsTUFBZixDQUFzQlIsTUFBTSxDQUFDRyxPQUE3QjtBQURvQixPQUF6QixDQUFQOztBQUdGO0FBQ0UsYUFBT0osS0FBUDtBQVJKO0FBVUQ7O0FBRWNELDBFQUFmIiwiZmlsZSI6InN0YXRpYy93ZWJwYWNrL3N0YXRpY1xcZGV2ZWxvcG1lbnRcXHBhZ2VzXFxfYXBwLmpzLjQxZTc4ZmUwYzhiZDI4MDZjYjBlLmhvdC11cGRhdGUuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBBRERfQVJUSUNMRSB9IGZyb20gXCIuLi9jb25zdGFudHMvYWN0aW9uLXR5cGVzXCI7XHJcbmltcG9ydCB7IEhZRFJBVEUgfSBmcm9tIFwibmV4dC1yZWR1eC13cmFwcGVyXCI7XHJcblxyXG5jb25zdCBpbml0aWFsU3RhdGUgPSB7XHJcbiAgbnVtYmVyT2ZQYWlyczogMTUsXHJcbiAgY2FyZHM6IFtcclxuICAgIHtcclxuICAgICAgc3JjOiBcImFuaW1hbHMtYnVubnkuanBnXCIsXHJcbiAgICB9LFxyXG4gICAge1xyXG4gICAgICBzcmM6IFwiYW5pbWFscy1idW5ueS5qcGdcIixcclxuICAgIH0sXHJcbiAgICB7XHJcbiAgICAgIHNyYzogXCJhbmltYWxzLWJ1bm55LmpwZ1wiLFxyXG4gICAgfSxcclxuICAgIHtcclxuICAgICAgc3JjOiBcImFuaW1hbHMtYnVubnkuanBnXCIsXHJcbiAgICB9LFxyXG4gICAge1xyXG4gICAgICBzcmM6IFwiYW5pbWFscy1idW5ueS5qcGdcIixcclxuICAgIH0sXHJcbiAgICB7XHJcbiAgICAgIHNyYzogXCJhbmltYWxzLWJ1bm55LmpwZ1wiLFxyXG4gICAgfSxcclxuICAgIHtcclxuICAgICAgc3JjOiBcImFuaW1hbHMtYnVubnkuanBnXCIsXHJcbiAgICB9LFxyXG4gICAge1xyXG4gICAgICBzcmM6IFwiYW5pbWFscy1idW5ueS5qcGdcIixcclxuICAgIH0sXHJcbiAgICB7XHJcbiAgICAgIHNyYzogXCJhbmltYWxzLWJ1bm55LmpwZ1wiLFxyXG4gICAgfSxcclxuICAgIHtcclxuICAgICAgc3JjOiBcImFuaW1hbHMtYnVubnkuanBnXCIsXHJcbiAgICB9LFxyXG4gICAge1xyXG4gICAgICBzcmM6IFwiYW5pbWFscy1idW5ueS5qcGdcIixcclxuICAgIH0sXHJcbiAgICB7XHJcbiAgICAgIHNyYzogXCJhbmltYWxzLWJ1bm55LmpwZ1wiLFxyXG4gICAgfSxcclxuICAgIHtcclxuICAgICAgc3JjOiBcImFuaW1hbHMtYnVubnkuanBnXCIsXHJcbiAgICB9LFxyXG4gICAge1xyXG4gICAgICBzcmM6IFwiYW5pbWFscy1idW5ueS5qcGdcIixcclxuICAgIH0sXHJcbiAgICB7XHJcbiAgICAgIHNyYzogXCJhbmltYWxzLWJ1bm55LmpwZ1wiLFxyXG4gICAgfSxcclxuICAgIHtcclxuICAgICAgc3JjOiBcImFuaW1hbHMtYnVubnkuanBnXCIsXHJcbiAgICB9LFxyXG4gICAge1xyXG4gICAgICBzcmM6IFwiYW5pbWFscy1idW5ueS5qcGdcIixcclxuICAgIH0sXHJcbiAgICB7XHJcbiAgICAgIHNyYzogXCJhbmltYWxzLWJ1bm55LmpwZ1wiLFxyXG4gICAgfSxcclxuICAgIHtcclxuICAgICAgc3JjOiBcImFuaW1hbHMtYnVubnkuanBnXCIsXHJcbiAgICB9LFxyXG4gICAge1xyXG4gICAgICBzcmM6IFwiYW5pbWFscy1idW5ueS5qcGdcIixcclxuICAgIH0sXHJcbiAgICB7XHJcbiAgICAgIHNyYzogXCJhbmltYWxzLWJ1bm55LmpwZ1wiLFxyXG4gICAgfSxcclxuICBdLFxyXG59O1xyXG5cclxuZnVuY3Rpb24gcm9vdFJlZHVjZXIoc3RhdGUgPSBpbml0aWFsU3RhdGUsIGFjdGlvbikge1xyXG4gIHN3aXRjaCAoYWN0aW9uLnR5cGUpIHtcclxuICAgIGNhc2UgSFlEUkFURTpcclxuICAgICAgcmV0dXJuIHsgLi4uc3RhdGUsIC4uLmFjdGlvbi5wYXlsb2FkIH07XHJcbiAgICBjYXNlIEFERF9BUlRJQ0xFOlxyXG4gICAgICByZXR1cm4gT2JqZWN0LmFzc2lnbih7fSwgc3RhdGUsIHtcclxuICAgICAgICBhcnRpY2xlczogc3RhdGUuYXJ0aWNsZXMuY29uY2F0KGFjdGlvbi5wYXlsb2FkKSxcclxuICAgICAgfSk7XHJcbiAgICBkZWZhdWx0OlxyXG4gICAgICByZXR1cm4gc3RhdGU7XHJcbiAgfVxyXG59XHJcblxyXG5leHBvcnQgZGVmYXVsdCByb290UmVkdWNlcjtcclxuIl0sInNvdXJjZVJvb3QiOiIifQ==
