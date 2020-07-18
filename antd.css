@@ -1,0 +1,13 @@
+@import "~antd/dist/antd.css";
+
+.wrapper {
+  display: inline-block;
+  background-color: #bbb;
+  margin: 0 1px;
+  width: 125px;
+  height: 125px;
+}
+
+.img {
+  display: none;
+}
