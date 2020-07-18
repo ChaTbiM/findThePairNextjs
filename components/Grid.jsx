@@ -36,42 +36,29 @@ function Grid(props) {
 
   return (
     //   grid Item
-    <gridContainer>
+    <GridContainer>
       {props.cards.map((el, index) => {
         if (el.isActive) {
           return (
-            <div
-              key={"div" + index}
-              style={{
-                margin: " 1px",
-                float: "left",
-                display: "inline-block",
-                height: "125px",
-                width: "125px",
-                backgroundColor: "#bbb",
-              }}
-            >
+            <ImageWrapper width={props.width} key={"div" + index}>
               <img key={el.src + index} data-index={el.index} src={el.src} />
-            </div>
+            </ImageWrapper>
           );
         } else {
           return (
-            <div
+            <ImageWrapper
+              width={props.width}
               key={"div" + index}
-              onClick={() => props.flipCard(el.index)}
-              style={{
-                margin: " 1px",
-                display: "inline-block",
-                float: "left",
-                height: "125px",
-                width: "125px",
-                backgroundColor: "#bbb",
+              onClick={() => {
+                if (!props.matching) {
+                  props.flipCard(el.index);
+                }
               }}
-            ></div>
+            />
           );
         }
       })}
-    </gridContainer>
+    </GridContainer>
   );
 }
 
@@ -80,6 +67,7 @@ const mapStateToProps = (state) => ({
   cards: state.cards,
   clickCounter: state.clickCounter,
   matching: state.matching,
+  width: state.width,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -94,8 +82,31 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(Grid);
 
 // ---------------------------------
-const gridContainer = styled.div`
+const GridContainer = styled.div`
   width: 520px;
-  height: 520px;
-  margin: 5px auto;
+  height: 100vh;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 5%;
 `;
+
+const ImageWrapper = styled.div`
+  display: inline-block;
+  margin-right: 1px;
+  margin-top: 2px;
+  width: ${(props) => props.width + "px"};
+  height: ${(props) => props.width + "px"};
+  background-color: #bbb;
+
+  overflow: auto;
+
+  img {
+    width: ${(props) => props.width + "px"};
+    height: ${(props) => props.width + "px"};
+    padding: 1px;
+  }
+`;
+
+ImageWrapper.defaultProps = {
+  width: 125,
+};

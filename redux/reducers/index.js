@@ -7,6 +7,7 @@ import {
   START_GAME,
   FLIP_ALL_CARDS,
   FLIP_CARD,
+  CHANGE_WIDTH,
 } from "../constants/action-types";
 import { HYDRATE } from "next-redux-wrapper";
 import { flipCard } from "../actions";
@@ -15,7 +16,8 @@ const clone = require("rfdc")();
 
 const initialState = {
   numberOfPairs: 6,
-  width: 73,
+  width: 127,
+  isLoading: true,
   clickCounter: 0,
   matching: false,
   matchingCard: null,
@@ -113,8 +115,15 @@ function rootReducer(state = initialState, action) {
       return { ...state, ...action.payload };
       break;
     case CHANGE_NUMBER_OF_PAIRS:
+      let numberOfPairs = action.payload;
       return Object.assign({}, state, {
-        numberOfPairs: action.payload,
+        numberOfPairs,
+      });
+      break;
+    case CHANGE_WIDTH:
+      let width = action.payload;
+      return Object.assign({}, state, {
+        width,
       });
       break;
     case START_GAME:
@@ -229,10 +238,3 @@ function rootReducer(state = initialState, action) {
 }
 
 export default rootReducer;
-
-// for(let i = array.length — 1; i > 0; i--){
-//   const j = Math.floor(Math.random() * i)
-//   const temp = array[i]
-//   array[i] = array[j]
-//   array[j] = temp
-// }

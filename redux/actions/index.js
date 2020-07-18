@@ -6,6 +6,7 @@ import {
   START_GAME,
   FLIP_ALL_CARDS,
   FLIP_CARD,
+  CHANGE_WIDTH,
 } from "../constants/action-types";
 
 export function changeNumberOfPairs(payload) {
@@ -38,6 +39,9 @@ export function flipAllCards(payload) {
 
 export function flipCard(payload) {
   return { type: FLIP_CARD, payload };
+}
+export function changeWidth(payload) {
+  return { type: CHANGE_WIDTH, payload };
 }
 
 // shuffle cards

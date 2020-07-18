@@ -7,3 +7,5 @@ export const RESET_CARDS = "RESET_CARDS";
 
 export const FLIP_ALL_CARDS = "FLIP_ALL_CARDS";
 export const FLIP_CARD = "FLIP_CARD";
+
+export const CHANGE_WIDTH = "CHANGE_WIDTH";

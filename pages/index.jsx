@@ -10,15 +10,11 @@ const { Content, Sider } = Layout;
 
 function App(props) {
   return (
-    <Layout>
-      {/* <button onClick={() => props.changeNumberOfPairs(90)}>change</button>
-      <div>number of pairs : {props.numberOfPairs}</div>
-      <Button type="primary">Button</Button> */}
-
+    <Layout style={{ width: "70%", margin: "0 auto", display: "flex" }}>
       <Content>
         <Grid />
       </Content>
-      <Sider theme="light">
+      <Sider align="center" theme="light">
         <Control />
       </Sider>
     </Layout>
