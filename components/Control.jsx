@@ -1,10 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
-import { changeNumberOfPairs, changeWidth } from "../redux/actions/index";
+import {
+  changeNumberOfPairs,
+  changeWidth,
+  resetGame,
+  resetCards,
+  shuffleCards,
+  limitCards,
+  duplicateCards,
+  flipAllCards,
+} from "../redux/actions/index";
 import { Menu, Button, Dropdown } from "antd";
 import styled from "styled-components";
-
-const pairs = [6, 8, 10, 12, 15, 18, 21];
 
 const menu = (props) => {
   return (
@@ -69,24 +76,66 @@ const menu = (props) => {
     </Menu>
   );
 };
+
+function gameStatus(props) {
+  const tryString = props.numberOfAttempts === 1 ? "try" : "tries";
+  if (props.numberOfAttempts > 0) {
+    return (
+      <StyledStatus>
+        You found {props.numberOfFoundPairs} out of {props.numberOfPairs} pairs
+        with
+        {props.numberOfAttempts} {tryString}.
+      </StyledStatus>
+    );
+  } else {
+    return <StyledStatus>find All pairs !</StyledStatus>;
+  }
+}
+
 function Control(props) {
   return (
     <ControlContainer>
       <Dropdown overlay={menu(props)} placement="bottomCenter">
         <Button>{props.numberOfPairs} pairs</Button>
       </Dropdown>
-      <StyledStatus>You found 0 out of 8 pairs with 1 try.</StyledStatus>
+      {gameStatus(props)}
+
+      <Button
+        style={{ display: "block", margin: "20px auto" }}
+        onClick={() => {
+          props.resetGame();
+          props.resetCards();
+          props.shuffleCards();
+          props.limitCards();
+          props.duplicateCards();
+          props.shuffleCards();
+
+          setTimeout(() => {
+            props.flipAllCards();
+          }, 1500);
+        }}
+      >
+        Restart Game
+      </Button>
     </ControlContainer>
   );
 }
 
 const mapStateToProps = (state) => ({
   numberOfPairs: state.numberOfPairs,
+  numberOfFoundPairs: state.numberOfFoundPairs,
+  numberOfAttempts: state.numberOfAttempts,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   changeNumberOfPairs: (number) => dispatch(changeNumberOfPairs(number)),
   changeWidth: (width) => dispatch(changeWidth(width)),
+  resetGame: () => dispatch(resetGame()),
+  resetCards: () => dispatch(resetCards()),
+  shuffleCards: () => dispatch(shuffleCards()),
+  duplicateCards: () => dispatch(duplicateCards()),
+  limitCards: () => dispatch(limitCards()),
+  flipAllCards: () => dispatch(flipAllCards()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Control);
@@ -97,7 +146,7 @@ const ControlContainer = styled.div`
 `;
 
 const StyledStatus = styled.p`
-  display: inline-block;
-  margin: 10px auto;
+  display: block;
+  margin: 20px auto;
   padding: 0 1rem;
 `;

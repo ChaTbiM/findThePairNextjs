@@ -26,7 +26,6 @@ function Grid(props) {
   }, [props.numberOfPairs]);
 
   useEffect(() => {
-    console.log("here", props.matching);
     if (props.matching) {
       setTimeout(() => {
         props.flipAllCards();
@@ -34,19 +33,38 @@ function Grid(props) {
     }
   }, [props.matching]);
 
+  useEffect(() => {
+    if (props.numberOfFoundPairs === props.numberOfPairs) {
+      setTimeout(() => {
+        alert("YOU WIN ");
+      }, 500);
+    }
+  }, [props.numberOfFoundPairs]);
+
   return (
     //   grid Item
     <GridContainer>
       {props.cards.map((el, index) => {
-        if (el.isActive) {
+        // matching  and isActive
+        // matching and notActive
+        if (el.isActive || el.timed) {
           return (
-            <ImageWrapper width={props.width} key={"div" + index}>
+            <ImageWrapper color="#bbb" width={props.width} key={"div" + index}>
               <img key={el.src + index} data-index={el.index} src={el.src} />
             </ImageWrapper>
+          );
+        } else if (el.match) {
+          return (
+            <ImageWrapper
+              color="transparent"
+              width={props.width}
+              key={"div" + index}
+            />
           );
         } else {
           return (
             <ImageWrapper
+              color="#bbb"
               width={props.width}
               key={"div" + index}
               onClick={() => {
@@ -64,10 +82,13 @@ function Grid(props) {
 
 const mapStateToProps = (state) => ({
   numberOfPairs: state.numberOfPairs,
+  numberOfAttempts: state.numberOfAttempts,
+  numberOfFoundPairs: state.numberOfFoundPairs,
   cards: state.cards,
   clickCounter: state.clickCounter,
   matching: state.matching,
   width: state.width,
+  matching: state.matching,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -96,11 +117,12 @@ const ImageWrapper = styled.div`
   margin-top: 2px;
   width: ${(props) => props.width + "px"};
   height: ${(props) => props.width + "px"};
-  background-color: #bbb;
+  background-color: ${(props) => props.color};
 
   overflow: auto;
 
-  img {
+  img,
+  .blank {
     width: ${(props) => props.width + "px"};
     height: ${(props) => props.width + "px"};
     padding: 1px;

@@ -8,6 +8,7 @@ import {
   FLIP_ALL_CARDS,
   FLIP_CARD,
   CHANGE_WIDTH,
+  RESET_GAME,
 } from "../constants/action-types";
 import { HYDRATE } from "next-redux-wrapper";
 import { flipCard } from "../actions";
@@ -15,8 +16,10 @@ import { flipCard } from "../actions";
 const clone = require("rfdc")();
 
 const initialState = {
-  numberOfPairs: 6,
   width: 127,
+  numberOfPairs: 6,
+  numberOfFoundPairs: 0,
+  numberOfAttempts: 0,
   isLoading: true,
   clickCounter: 0,
   matching: false,
@@ -126,8 +129,14 @@ function rootReducer(state = initialState, action) {
         width,
       });
       break;
+    case RESET_GAME:
+      {
+        let numberOfPairs = state.numberOfPairs;
+        return Object.assign({}, initialState, { numberOfPairs });
+      }
+      break;
     case START_GAME:
-      return Object.assign({}, state, { gameState: "playing" });
+      return Object.assign({}, state, { isPlaying: true });
       break;
     case RESET_CARDS:
       let initialCards = initialState.cards;
@@ -172,16 +181,22 @@ function rootReducer(state = initialState, action) {
       flipedCards.forEach((el, index) => {
         if (el.match === false) {
           el.isActive = false;
+        } else if (el.match === true) {
+          el.timed = false;
         }
       });
       return Object.assign({}, state, {
         cards: [...flipedCards],
         matching: false,
+        isPlaying: true,
       });
     case FLIP_CARD:
       let flippedCardIndex = state.cards.findIndex(
         (el) => el.index === action.payload
       );
+
+      let numberOfFoundPairs = state.numberOfFoundPairs;
+
       let allCards = clone(state.cards);
       // flip first card and remember it
       if (state.clickCounter === 0) {
@@ -204,6 +219,8 @@ function rootReducer(state = initialState, action) {
         });
       } else if (state.clickCounter === 1) {
         let newCounter = 0;
+        let numberOfAttempts = state.numberOfAttempts;
+        numberOfAttempts++;
 
         // flip Second Card
         allCards.forEach((el) => {
@@ -217,8 +234,12 @@ function rootReducer(state = initialState, action) {
           allCards.forEach((el) => {
             if (el.src === state.matchingCard.src) {
               el.match = true;
+              el.isActive = false;
+              el.timed = true;
             }
           });
+
+          numberOfFoundPairs++;
         }
 
         return Object.assign({}, state, {
@@ -226,6 +247,9 @@ function rootReducer(state = initialState, action) {
           clickCounter: newCounter,
           matching: true,
           matchingCard: initialState.matchingCard,
+          numberOfFoundPairs,
+          numberOfAttempts,
+          isPlaying: false,
         });
       }
 
