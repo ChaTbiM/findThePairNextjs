@@ -126,6 +126,7 @@ const ImageWrapper = styled.div`
     width: ${(props) => props.width + "px"};
     height: ${(props) => props.width + "px"};
     padding: 1px;
+    transform: scaleY(-1);
   }
 `;
 
