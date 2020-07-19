@@ -10,7 +10,7 @@ const { Content, Sider } = Layout;
 
 function App(props) {
   return (
-    <Layout style={{ width: "70%", margin: "0 auto", display: "flex" }}>
+    <Layout style={{ width: "100%", margin: "0 auto", display: "flex" }}>
       <Content>
         <Grid />
       </Content>
